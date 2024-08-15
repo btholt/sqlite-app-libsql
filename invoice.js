@@ -2,7 +2,7 @@ import sqlite3 from "@libsql/sqlite3";
 
 const db = new sqlite3.Database("http://localhost:8080");
 
-export default function registerInvoiceComplete(fastify, opts, done) {
+export default function registerInvoice(fastify, opts, done) {
   fastify.all("/", (request, reply) => {
     const id = request.query.id;
 
