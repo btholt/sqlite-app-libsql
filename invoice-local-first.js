@@ -1,7 +1,5 @@
 import { createClient } from "@libsql/client";
 
-// const db = new Database("http://localhost:8080");
-
 const db = createClient({
   url: "file:local-data.db",
   syncUrl: "http://localhost:5001",
