@@ -2,7 +2,9 @@ import Fastify from "fastify";
 import fastifyStatic from "@fastify/static";
 import path from "path";
 import registerInvoice from "./invoice.js";
-import registerInvoiceLocalFirst from "./invoice-local-first.js";
+
+// import registerInvoiceLocalFirst from "./invoice-local-first.js";
+// fastify.register(registerInvoiceLocalFirst, { prefix: "/invoice-local-first" });
 
 const __dirname = import.meta.dirname;
 
@@ -16,7 +18,6 @@ fastify.register(fastifyStatic, {
 });
 
 fastify.register(registerInvoice, { prefix: "/invoice" });
-fastify.register(registerInvoiceLocalFirst, { prefix: "/invoice-local-first" });
 
 fastify.get("/htmx.js", function (req, reply) {
   reply.sendFile("node_modules/htmx.org/dist/htmx.js", path.join(__dirname));
